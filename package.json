@@ -1,0 +1,52 @@
+{
+  "name": "gatex",
+  "version": "1.0.0",
+  "description": "GatEX is a declarative routing toolkit for Express.js that simplifies route management, validation, and middleware organization with TypeScript decorators.",
+  "author": "Leandro de Meirelles <meirellesoffice@gmail.com>",
+  "keywords": [
+    "express",
+    "router",
+    "typescript",
+    "zod",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/droanle/gatex.git"
+  },
+  "scripts": {
+    "test": "vitest",
+    "dev": "ts-node examples/server.ts",
+    "build": "tsup",
+    "docs": "typedoc --entryPointStrategy expand --out docs ./src"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "express": "^4.17.0 || ^5.0.0",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/supertest": "^6.0.3",
+    "eslint": "^9.28.0",
+    "prettier": "^3.5.3",
+    "supertest": "^7.1.3",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "typedoc": "^0.28.7",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "body-parser": "^2.2.0"
+  }
+}
