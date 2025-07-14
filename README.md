@@ -1,4 +1,4 @@
-# GatEX - Powerful Express Routing Toolkit
+# GatEX - Express Routing Toolkit
 
 GatEX is a declarative routing toolkit for Express.js that simplifies route management, validation, and middleware organization with TypeScript decorators.
 
