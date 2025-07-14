@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/droanle/gatex.git"
+    "url": "git+https://github.com/droanle/GatEX.git"
   },
   "scripts": {
     "test": "vitest",
