@@ -8,7 +8,9 @@
     "router",
     "typescript",
     "zod",
-    "validation"
+    "validation",
+    "backend",
+    "node"
   ],
   "repository": {
     "type": "git",
