@@ -1,3 +1,4 @@
+import { Request, Response, NextFunction, RequestHandler } from "express";
 import { GatEXHandler } from "./types";
 
 /**
@@ -22,39 +23,39 @@ export interface IRepository {
    * Used to create a new resource. The request body (`req.body`) is the
    * intended source for creation data.
    */
-  create?: GatEXHandler;
+  create?: (req: Request, res: Response) => void | Promise<void>;
 
   /**
    * Mapped to **`GET /{pathName}`**.
    * Used to list a collection of resources. Schema validation typically applies
    * to `req.query` for filtering and pagination.
    */
-  list?: GatEXHandler;
+  list?: (req: Request, res: Response) => void | Promise<void>;
 
   /**
    * Mapped to **`GET /{pathName}/:{idParam}`**.
    * Used to retrieve a single resource by its ID. The ID will be available
    * in `req.params`.
    */
-  get?: GatEXHandler;
+  get?: (req: Request, res: Response) => void | Promise<void>;
 
   /**
    * Mapped to **`PUT /{pathName}/:{idParam}`**.
    * Used to completely replace an existing resource. The request body (`req.body`)
    * should contain the full resource representation.
    */
-  update?: GatEXHandler;
+  update?: (req: Request, res: Response) => void | Promise<void>;
 
   /**
    * Mapped to **`PATCH /{pathName}/:{idParam}`**.
    * Used to partially update an existing resource. The request body (`req.body`)
    * should contain only the fields to be updated.
    */
-  patch?: GatEXHandler;
+  patch?: (req: Request, res: Response) => void | Promise<void>;
 
   /**
    * Mapped to **`DELETE /{pathName}/:{idParam}`**.
    * Used to delete a specific resource by its ID.
    */
-  delete?: GatEXHandler;
+  delete?: (req: Request, res: Response) => void | Promise<void>;
 }
