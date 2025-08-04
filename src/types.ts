@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from "express";
-import { ZodSchema } from "zod";
+import { z } from "zod";
 import GroupingProvider from "./GroupingProvider";
 
 /**
@@ -26,12 +26,12 @@ export type GatEXHandler = (
  * @category Types
  */
 export type RequestSchemaType =
-  | ZodSchema<any>
+  | z.ZodTypeAny
   | {
-      body?: ZodSchema<any>;
-      query?: ZodSchema<any>;
-      params?: ZodSchema<any>;
-      headers?: ZodSchema<any>;
+      body?: z.ZodTypeAny;
+      query?: z.ZodTypeAny;
+      params?: z.ZodTypeAny;
+      headers?: z.ZodTypeAny;
     };
 
 /**

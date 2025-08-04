@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { ZodError, ZodSchema } from "zod";
+import { z, ZodError } from "zod";
 
 /**
  * A custom error class that represents a validation failure.
@@ -13,7 +13,7 @@ import { ZodError, ZodSchema } from "zod";
  */
 export default class ValidationSchemeError extends Error {
   public readonly issues: ZodError["issues"];
-  public readonly schema: ZodSchema<any>;
+  public readonly schema: z.ZodTypeAny;
   public readonly request: any;
 
   /**
@@ -25,7 +25,7 @@ export default class ValidationSchemeError extends Error {
    */
   constructor(
     message: string,
-    schema: ZodSchema<any>,
+    schema: z.ZodTypeAny,
     issues: ZodError["issues"],
     request: any
   ) {

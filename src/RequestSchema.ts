@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, RequestHandler } from "express";
-import { ZodSchema } from "zod";
+import { z } from "zod";
 import ValidationSchemeError from "./ValidationSchemeError";
 import { RequestSchemaType } from "./types";
 
@@ -8,7 +8,7 @@ export default function RequestSchema(
 ): RequestHandler {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      if (schema instanceof ZodSchema) {
+      if (schema instanceof z.ZodType) {
         const targetType = ["POST", "PUT", "PATCH"].includes(req.method)
           ? "body"
           : "query";
@@ -21,7 +21,7 @@ export default function RequestSchema(
       const validations: {
         key: "body" | "query" | "params" | "headers";
         source: any;
-        schema?: ZodSchema<any>;
+        schema?: z.ZodTypeAny;
       }[] = [
         { key: "body", source: req.body ?? {}, schema: schema.body },
         { key: "query", source: req.query ?? {}, schema: schema.query },

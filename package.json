@@ -1,8 +1,8 @@
 {
   "name": "gatex",
   "version": "1.0.0",
-  "description": "GatEX is a declarative routing toolkit for Express.js that simplifies route management, validation, and middleware organization with TypeScript decorators.",
-  "author": "Leandro de Meirelles <meirellesoffice@gmail.com>",
+  "description": "A declarative toolkit for routing and validation in Express, built with TypeScript and Decorators.",
+  "author": "Leandro de Meirelles<meirellesoffice@gmail.com>",
   "keywords": [
     "express",
     "router",
@@ -14,26 +14,29 @@
     "type": "git",
     "url": "git+https://github.com/droanle/GatEX.git"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "vitest",
-    "dev": "ts-node examples/server.ts",
     "build": "tsup",
     "docs": "typedoc --out docs --plugin typedoc-material-theme --themeColor '#006498' ./src"
   },
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.js"
     }
   },
   "license": "MIT",
   "peerDependencies": {
     "express": "^4.17.0 || ^5.0.0",
     "reflect-metadata": "^0.2.2",
-    "zod": "^3.0.0"
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",

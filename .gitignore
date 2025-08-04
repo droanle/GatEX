@@ -2,8 +2,7 @@
 node_modules/
 
 # Build output
-dist/
-build/
+/dist
 
 # TypeScript cache
 *.tsbuildinfo
@@ -15,6 +14,7 @@ yarn-error.log*
 
 # Environment variables
 .env
+.env.local
 
 # IDE settings
 .vscode/
@@ -22,3 +22,7 @@ yarn-error.log*
 
 # OS files
 .DS_Store
+Thumbs.db
+
+# npm pack packages
+*.tgz
